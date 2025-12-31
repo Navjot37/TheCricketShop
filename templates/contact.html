@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Contact Us
+{% endblock %}
+
+{% block content %}
+    <li><a href="/index">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a class="active" href="/contact">Contact Us</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+
+<div class="header">
+    <div class="container3">
+        <div class="row1">
+            <h1 class="bungee-tint-regular"><b>Contact Us</b></h1>
+        </div>
+
+        <div class="container8">
+            <div class="label">
+                <i class="fa-solid fa-location-dot myIcon"></i>
+                <div class="myFont"><b>Address</b><br>446 Queen St E, Sault Ste. Marie, ON <br>P6A 1Z7</div>
+            </div>
+            <div class="label">
+                <i class="fa-solid fa-phone myIcon"></i>
+                <div class="myFont"><b>Phone</b><br>705-567-4567</div>
+            </div>
+            <div class="label">
+                <i class="fa-solid fa-envelope myIcon"></i>
+                <div class="myFont"><b>Email</b><br>cricketshop@shaw.net</div>
+            </div>
+            <div class="label">
+                <i class="fa-solid fa-fax myIcon"></i>
+                <div class="myFont"><b>Fax</b><br>705-567-4565</div>
+            </div>
+        </div>
+
+        <div class="container8" style="padding-top: 18px">
+            <iframe width="80%" height="230" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2745.8365934983426!2d-84.33483502379792!3d46.511344871110374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d3639caab62af55%3A0x720126dbb4dac6a6!2s446%20Queen%20St%20E%2C%20Sault%20Ste.%20Marie%2C%20ON%20P6A%201Z7!5e0!3m2!1sen!2sca!4v1743229707315!5m2!1sen!2sca"
+                frameborder="0" scrolling="no" marginheight="30" marginwidth="0" style="border:2px solid;" ></iframe>
+        </div>
+
+        <div>
+            <h3 class="dancing-script-myHeading" style="padding: 30px 145px; text-align: left;">Got Any Questions?</h4>
+        </div>
+
+        <div class="container9">
+            <div class="box1">
+                <form action="https://api.web3forms.com/submit" enctype="multipart/form-data" method="POST" class="myForm">
+                    <input type="hidden" name="access_key" value="e4efe1da-82b7-4deb-863b-913bd0d030da">
+                    <input type="text" name="name" placeholder="Enter your name" autocomplete="off" required class="myFormFields">
+                    <input type="tel" name="phone" placeholder="Enter your phone: xxx-xxx-xxxx" autocomplete="off" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required class="myFormFields">
+                    <input type="email" name="email" placeholder="Enter your email" autocomplete="off" required class="myFormFields">
+                    <textarea name="comment" placeholder="Comment" required class="myFormFields"></textarea>
+
+                    <label for="file" class="myFileLabel">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        Upload File</label>
+                    <div class="myFile">
+                        <input type="file" id="file"/>
+                    </div>
+                    <button type="submit" name="btn" class="button2">Submit &#8594</button>
+                </form>
+            </div>
+
+            <div class="box2">
+                <div class="box3">
+                    <div class="hours">
+                        <h4 class="dancing-script-myHeading" style="padding: 10px; text-align: center;"><b>Business Hours</b></h4>
+                        <p style="word-spacing: 40px;"><b style="color:red;">Sunday Closed</b></p>
+                        <p style="word-spacing: 40px;">Monday 9:00-17:00</p>
+                        <p style="word-spacing: 38px;">Tuesday 9:00-17:00</p>
+                        <p style="word-spacing: 14px;">Wednesday 9:00-17:00</p>
+                        <p style="word-spacing: 31px;">Thursday 9:00-17:00</p>
+                        <p style="word-spacing: 54px;">Friday 9:00-17:00</p>
+                        <p style="word-spacing: 26px;"><b style="color:red;">Saturday Closed</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block content %}
+    <li><a href="/index">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a class="active" href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+<div class="header">
+    <div style="padding-top: 30px; padding-bottom: 30px">
+        <div class="row1">
+            <h1 class="bungee-tint-regular"><b>About us</b></h1>
+        </div>
+
+        <div class="container10">
+            <h1 class="dancing-script-myHeading" style="color: #fff; padding: 35px; padding-left: 100px;">A journey in the making since 1984!</h3>
+        </div>
+
+        <div class="row" style="padding: 0 50px; padding-top: 50px; padding-bottom: 10px">
+            <div class="mycol-1">
+                <p style="color: ; text-align: justify; font-size: 20px; line-height: 35px;">
+                    41 years ago, we began as a small store that only sold cricket bat & ball. Today, we still sell those - but
+                    along with that we sell protective equipments, customized jerseys, national team jerseys, shoes, on field
+                    equipments like bails etc., visors, hats and more. Limited only to in-store before, now we expanded to sell
+                     these products online as well. The "more" is providing the very best customer service, customer experience,
+                     and company culture. We aim to inspire the world by showing it's possible to simultaneously deliver happiness
+                      to customers, employees and community.
+                </p>
+            </div>
+
+            <div class="mycol-2">
+                <img src="/static/images/pic1.jpg" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="row" style="padding: 10px 50px;">
+            <div class="mycol-2">
+                <img src="/static/images/pic2.jpeg" style="width: 100%; ">
+            </div>
+
+            <div class="mycol-1">
+                <p style="color: ; text-align: justify; font-size: 20px; line-height: 35px;">
+                    At The Cricket Store, we take a hands-on approach in product selection. Our team closely monitors the manufacturing
+                     processes of cricket equipment in the shop, observing the intricate techniques and time-honored traditions that go
+                     into crafting each piece. At The Cricket Shop, quality isn't just a buzzword – it's our solemn promise to you.
+                     We go above and beyond to ensure that every product in our store meets the highest standards of performance and durability.
+                     Discover vast array of cricket gear, carefully selected to meet the needs of players at every level. From bats and
+                      balls to protective gear and accessories, our diverse range ensures that you'll find the perfect equipment to elevate your game.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Featured Items
+{% endblock %}
+
+{% block content %}
+    <li><a href="/index">Home</a></li>
+    <li><a class="active" href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+
+<div class="header4">
+    <div class="container3">
+        <div class="row">
+            {% for item in detail %}
+            <div class="mycol" style="padding-top: 60px;">
+                <p style="font-size: 13px;"><a href="/index">Home</a> > <a href="/products">Products</a> > {{ item[2] }}</p>
+                <div id="carouselControl" class="carousel carousel-dark slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{{ item[6] }}" alt="img1" style="height: 638px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{{ item[7] }}" alt="img2" style="height: 638px;">
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="{{ item[8] }}" alt="img3" style="height: 638px;">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselControl" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselControl" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="carousel-indicators">
+                        <button type="button" class="active" data-bs-target="#carouselControl" data-bs-slide-to="0">
+                            <img src="{{ item[6] }}">
+                        </button>
+
+                        <button type="button" data-bs-target="#carouselControl" data-bs-slide-to="1">
+                            <img src="{{ item[7] }}">
+                        </button>
+
+                        <button type="button" data-bs-target="#carouselControl" data-bs-slide-to="2">
+                            <img src="{{ item[8] }}">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mycol">
+                <p style="font-size: 13px; padding-top: 10px;">| {{ item[1] }}</p>
+                <h2><b>{{ item[2] }}</b></h2>
+                <h4 style="color: #c82222; padding-top: 5px;">{{ item[4] | usd }}</h4>
+                <p style="font-size: 13px; margin-top: -5px; color: #555;">Plus taxes</p>
+                <hr style="margin-top: -8px;">
+                <h5 style="padding-bottom: 5px;"><b>Product Description</b></h5>
+                <p style="padding-bottom: 25px;">
+                    &bull; {{ item[5].replace('\n', '<br> &bull; ') | safe }}
+                </p>
+
+                <form action="{{ url_for('add_to_cart')}}" method="POST">
+                    <input type="hidden" name="product_id" value="{{ item[0] }}">
+                    <input type="number" name="quantity" id="quantity" min="1" max="10" value="1" required
+                        style="height: 35px;  border-radius: 5px; border: 1px solid; text-align: center;">
+                    <button class="button4" name="source" value="detail">Add to cart <i class="fa-solid fa-cart-plus"></i></button>
+                </form>
+
+                <h5 style="padding-top: 35px;"><b>ABOUT SHIPPING & RETURNS</b></h5>
+                <p><a href="/returns" style="color: #000;">Read our shipping and returns policy</a></p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

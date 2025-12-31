@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    The Cricket Shop
+{% endblock %}
+
+{% block content %}
+    <li><a class="active" href="/index">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+
+<div class="header">
+    <div class="container2">
+        <div class="col-2">
+            <h1>Your Local Cricket Store <br> Since 1984!</h1>
+            <p class="p-space">Find all of your cricket equipments of need under one <br> roof. Lowest price in the city guranteed!</p>
+            <a href="/products" class="button">Explore Now &#8594</a>
+        </div>
+        <div class="col-2">
+            <img src="/static/images/player.png">
+        </div>
+    </div>
+
+    <div class="row" style="text-align: center; padding: 20px;">
+        <h1 class="bungee-tint-regular"><b>Shop by brands</b></h1>
+    </div>
+
+    <div class="row" style="align-items: center; margin-bottom: 0px; padding: 9px; text-align: center; background-color: #d8cdcd;">
+        {% for logo in Logos %}
+        <div class="col-1">
+
+            <a href="{{ url_for('products', name=logo[1]) }}">
+                <img src="{{ logo[2] }}" alt="img" class="brandLogos">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

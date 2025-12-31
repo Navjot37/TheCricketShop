@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Featured Items
+{% endblock %}
+
+{% block content %}
+    <li><a href="/index">Home</a></li>
+    <li><a class="active" href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+
+<div class="header">
+    <div class="container3">
+        <div class="row1">
+            <h1 class="bungee-tint-regular"><b>Products</b></h1>
+        </div>
+
+        <div style="height: 1800px;">
+            <div class="row4">
+            {% for item in products%}
+            <!--Using bootstrap cards-->
+            <div class="col-md-4 mb-4" style="height: 30%; width: 30%;">
+                    <div class="card" style="height: 520px;">
+                        <a href="{{ url_for('detail', name=item[0]) }}">
+                            <img src="{{ item[6] }}" alt="img" class="card-img-top" style="height: 380px; border-bottom: 2px solid #a9a9a9;">
+                        </a>
+                        <div class="card-body text-center">
+                            <a href="{{ url_for('detail', name=item[0]) }}">
+                                <div class="row" style="height: 55px;">
+                                    <h5 class="card-title">{{ item[2] }}</h5>
+                                </div>
+                            </a>
+
+                            <div class="buy">
+                                <h6 class="card-subtitle mb-2 mt-2"><b>{{ item[4] | usd }}</b></h6>
+                                <button class="button3 add-to-cart" data-product-id="{{ item[0] }}">
+                                    Add <i class="fa-solid fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <!-- Page {} of {} -->
+        <div class="row" style="text-align: center; padding-bottom: 20px;">
+            <b>Page {{ current_page }} of {{ no_of_page }}</b>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" style="padding-left: 115px;">
+
+            {% if current_page > 1 %}
+                <a href="{{ url_for('products', page=current_page - 1, name=request.args.get('name')) }}">
+                    <button class="btn btn-primary" style="border-bottom-right-radius: 0; border-top-right-radius: 0;">Previous</button>
+                </a>
+            {% endif %}
+
+            <!--for loop begin-->
+            {% for page_num in range(1, no_of_page + 1) %}
+
+            <div class="btn-group" role="group">
+            {% if page_num == current_page %}
+                <strong>
+                    <button type="button" class="btn btn-outline-primary active" style="border-radius: 0;">{{ page_num }}</button>
+                </strong>
+
+            {% else %}
+                <a href="{{ url_for('products', name=name, page=page_num) }}">
+                    <button type="button" class="btn btn-outline-primary" style="border-radius: 0;">{{ page_num }}</button>
+                </a>
+            {% endif %}
+            </div>
+
+            {% endfor %}
+            <!--for loop end-->
+
+            {% if current_page < no_of_page %}
+                <a href="{{ url_for('products', page=current_page + 1, name=request.args.get('name')) }}">
+                    <button class="btn btn-primary" style="border-bottom-left-radius: 0; border-top-left-radius: 0;">Next</button>
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

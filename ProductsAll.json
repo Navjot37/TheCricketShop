@@ -1,0 +1,236 @@
+[
+    {
+        "id": 1,
+        "product_title": "Adidas Incurza Control 1.0 Cricket Bat",
+        "price": 1047,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P1/B1P1I1.jpeg"
+    },
+    {
+        "id": 2,
+        "product_title": "Adidas Incurza 1.0 Cricket Bat",
+        "price": 646,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P2/B1P2I1.jpeg"
+    },
+    {
+        "id": 3,
+        "product_title": "Adidas Incurza Heat 1.0 Cricket Bat",
+        "price": 1039,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P3/B1P3I1.jpeg"
+    },
+    {
+        "id": 4,
+        "product_title": "Adidas Incurza 1.0 Cricket Batting Gloves",
+        "price": 143,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P4/B1P4I1.jpeg"
+    },
+    {
+        "id": 5,
+        "product_title": "Adidas Incurza 6.0 Cricket Battting Gloves",
+        "price": 75,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P5/B1P5I1.jpeg"
+    },
+    {
+        "id": 6,
+        "product_title": "Adidas Incurza 2.0 Cricket Battting Pads",
+        "price": 153,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P6/B1P6I1.jpeg"
+    },
+    {
+        "id": 7,
+        "product_title": "Adidas Incurza 1.0 Wicketkeeping Glove",
+        "price": 170,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P7/B1P7I1.jpeg"
+    },
+    {
+        "id": 8,
+        "product_title": "Adidas 22YDS Boost Cricket Shoes",
+        "price": 209,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Adidas/P8/B1P8I1.jpeg"
+    },
+    {
+        "id": 9,
+        "product_title": "Gray-Nicolls ShockWave Gen 2.0",
+        "price": 1020,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P1/B2P1I1.jpeg"
+    },
+    {
+        "id": 10,
+        "product_title": "Gray-Nicolls Neocore Player Edition",
+        "price": 935,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P2/B2P2I1.jpeg"
+    },
+    {
+        "id": 11,
+        "product_title": "Gray-Nicolls Oli Pope Players Edition Stratos 1.0",
+        "price": 675,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P3/B2P3I1.jpeg"
+    },
+    {
+        "id": 12,
+        "product_title": "Gray-Nicolls Ventus Gen 1.0 Pro Performance",
+        "price": 790,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P4/B2P4I1.jpeg"
+    },
+    {
+        "id": 13,
+        "product_title": "Gray-Nicolls Ventus Gen 1.1 Player Edition",
+        "price": 675,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P5/B2P5I1.jpeg"
+    },
+    {
+        "id": 14,
+        "product_title": "Gray-Nicolls Neocore 2000 Cricket Batting Gloves",
+        "price": 225,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P6/B2P6I1.jpeg"
+    },
+    {
+        "id": 15,
+        "product_title": "Gray-Nicolls Stratos 1.0 1500 Cricket Batting Gloves",
+        "price": 152,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P7/B2P7I1.jpeg"
+    },
+    {
+        "id": 16,
+        "product_title": "Gray-Nicolls Classic Players Edition Batting Pads",
+        "price": 265,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P8/B2P8I1.jpeg"
+    },
+    {
+        "id": 17,
+        "product_title": "Gray-Nicolls Stratos 1.0 Pro Batting Pads",
+        "price": 195,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P9/B2P9I1.jpeg"
+    },
+    {
+        "id": 18,
+        "product_title": "Gray-Nicolls Classic Players Edition Wicket keeping Gloves",
+        "price": 225,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P10/B2P10I1.jpeg"
+    },
+    {
+        "id": 19,
+        "product_title": "Gray-Nicolls Classic Pro Performance Wicket keeping Gloves",
+        "price": 193,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P11/B2P11I1.jpeg"
+    },
+    {
+        "id": 20,
+        "product_title": "Gray-Nicolls Evo Pro Cricket Helmet",
+        "price": 410,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P12/B2P12I1.jpeg"
+    },
+    {
+        "id": 21,
+        "product_title": "Gray-Nicolls Classic Pro Performance Wheelie Cricket Bag",
+        "price": 193,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gray-Nicolls/P13/B2P13I1.jpeg"
+    },
+    {
+        "id": 22,
+        "product_title": "Gunn & Moore Brava DXM LE Cricket Bat",
+        "price": 1015,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P1/B3P1I1.jpeg"
+    },
+    {
+        "id": 23,
+        "product_title": "Gunn & Moore Diamond DXM LE Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P2/B3P2I1.jpeg"
+    },
+    {
+        "id": 24,
+        "product_title": "Gunn & Moore Psyche DXM LE Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P3/B3P3I1.jpeg"
+    },
+    {
+        "id": 25,
+        "product_title": "Gunn & Moore Original L.E. Cricket Batting Pads",
+        "price": 249,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P4/B3P4I1.jpeg"
+    },
+    {
+        "id": 26,
+        "product_title": "Gunn & Moore Diamond Original Cricket Batting Pads",
+        "price": 193,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P5/B3P5I1.jpeg"
+    },
+    {
+        "id": 27,
+        "product_title": "Gunn & Moore Original LE Wicketkeeping Gloves",
+        "price": 212,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P6/B3P6I1.jpeg"
+    },
+    {
+        "id": 28,
+        "product_title": "Gunn & Moore Purist Geo II Cricket Helmet",
+        "price": 124,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Gunn_%26_Moore/P7/B3P7I1.jpeg"
+    },
+    {
+        "id": 29,
+        "product_title": "Kookaburra Aura Pro Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P1/B4P1I1.jpeg"
+    },
+    {
+        "id": 30,
+        "product_title": "Kookaburra Ghost Pro Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P2/B4P2I1.jpeg"
+    },
+    {
+        "id": 31,
+        "product_title": "Kookaburra Kahuna Pro Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P3/B4P3I1.jpeg"
+    },
+    {
+        "id": 32,
+        "product_title": "Kookaburra Rapid Pro Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P4/B4P4I1.jpeg"
+    },
+    {
+        "id": 33,
+        "product_title": "Kookaburra Stealth Pro Cricket Bat",
+        "price": 998,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P5/B4P5I1.jpeg"
+    },
+    {
+        "id": 34,
+        "product_title": "Kookaburra Aura Pro Cricket Batting Gloves",
+        "price": 138,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/Kookaburra/P6/B4P6I1.jpeg"
+    },
+    {
+        "id": 35,
+        "product_title": "New Balance DC Pro Players Cricket Bat",
+        "price": 1365,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/New_Balance/P1/B5P1I1.jpeg"
+    },
+    {
+        "id": 36,
+        "product_title": "New Balance TC Pro Players Cricket Bat",
+        "price": 1365,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/New_Balance/P2/B5P2I1.jpeg"
+    },
+    {
+        "id": 37,
+        "product_title": "New Balance Heritage 1000 Max Cricket Bat",
+        "price": 865,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/New_Balance/P3/B5P3I1.jpeg"
+    },
+    {
+        "id": 38,
+        "product_title": "New Balance TC 1260 Cricket Bat",
+        "price": 795,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/New_Balance/P4/B5P4I1.jpeg"
+    },
+    {
+        "id": 39,
+        "product_title": "New Balance DC 1280 Cricket Batting Gloves",
+        "price": 165,
+        "img1": "https://my-final-project-2025.s3.ca-central-1.amazonaws.com/Brands/New_Balance/P5/B5P5I1.jpeg"
+    }
+]

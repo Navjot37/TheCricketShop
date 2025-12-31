@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Account
+{% endblock %}
+
+{% block content %}
+    <li><a href="/index">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+    <li><a class="active" href="/account">Account</a></li>
+    <li><a href="/returns">Returns</a></li>
+    <li>
+        <a href="/cart">
+            <i class="fa-solid fa-cart-shopping">
+            </i>
+            <span class="cart">{{ session.get('cart', {}).values() | sum }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+
+<div class="container4">
+    <div style="padding: 40px 0;">
+        <div class="loggedIn">
+            <h1 style="color:#fff; text-align:center; padding: 30px;">Welcome! You are logged in as {{ session['name'] }}</h1>
+            <div style="text-align: center;">
+                <form action="/logout" method="post">
+                    <button type="submit" class="button1" id="logout" name="btn" value="logout">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
