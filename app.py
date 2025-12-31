@@ -8,6 +8,71 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required, usd
 
+def init_db():
+    # BRAND table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS brand (
+            id INTEGER PRIMARY KEY,
+            brand_name TEXT,
+            brand_logo TEXT
+        )
+    """)
+
+    # PRODUCTS table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY,
+            brand TEXT,
+            product_title TEXT,
+            product_name TEXT,
+            price REAL,
+            description TEXT,
+            img1 TEXT,
+            img2 TEXT,
+            img3 TEXT
+        )
+    """)
+
+    # USERS table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE,
+            hash TEXT,
+            name TEXT
+        )
+    """)
+
+    con.commit()
+
+def seed_data():
+    cur.execute("SELECT COUNT(*) FROM brand")
+    if cur.fetchone()[0] == 0:
+        with open("brand.csv", newline='', encoding="utf-8") as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                cur.execute(
+                    "INSERT INTO brand (id, brand_name, brand_logo) VALUES (?, ?, ?)",
+                    row
+                )
+
+    cur.execute("SELECT COUNT(*) FROM products")
+    if cur.fetchone()[0] == 0:
+        with open("products.csv", newline='', encoding="utf-8") as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                cur.execute(
+                    """INSERT INTO products 
+                    (id, brand, product_title, product_name, price, description, img1, img2, img3)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    row
+                )
+
+    con.commit()
+
+
 # Configure application
 app = Flask(__name__)
 
@@ -19,9 +84,15 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure sqlite3 Library to use SQLite database
-con = sqlite3.connect("shopping.db", check_same_thread=False)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, "shopping.db")
+
+con = sqlite3.connect(DB_PATH, check_same_thread=False)
 cur = con.cursor()
+
+# Calling the database
+init_db()
+seed_data()
 
 @app.after_request
 def after_request(response):
