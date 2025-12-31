@@ -1,5 +1,5 @@
 Flask 
 Flask-Session 
-psycopg[binary]
+psycopg2-binary
 werkzeug 
 gunicorn
