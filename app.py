@@ -56,7 +56,7 @@ def seed_data():
             for row in reader:
                 cur.execute(
                     "INSERT INTO brand (brand_name, brand_logo) VALUES (%s, %s)",
-                    row
+                    (row[1], row[2])
                 )
 
     cur.execute("SELECT COUNT(*) FROM products")
@@ -69,7 +69,7 @@ def seed_data():
                     """INSERT INTO products 
                     (brand, product_title, product_name, price, description, img1, img2, img3)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
-                    row
+                    (row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
                 )
 
     con.commit()
