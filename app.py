@@ -14,7 +14,7 @@ def init_db():
     # BRAND table
     cur.execute("""
         CREATE TABLE IF NOT EXISTS brand (
-            id INTEGER PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             brand_name TEXT,
             brand_logo TEXT
         )
@@ -23,7 +23,7 @@ def init_db():
     # PRODUCTS table
     cur.execute("""
         CREATE TABLE IF NOT EXISTS products (
-            id INTEGER PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             brand TEXT,
             product_title TEXT,
             product_name TEXT,
@@ -38,7 +38,7 @@ def init_db():
     # USERS table
     cur.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE,
             hash TEXT,
             name TEXT
@@ -55,7 +55,7 @@ def seed_data():
             next(reader)
             for row in reader:
                 cur.execute(
-                    "INSERT INTO brand (id, brand_name, brand_logo) VALUES (?, ?, ?)",
+                    "INSERT INTO brand (id, brand_name, brand_logo) VALUES (%s, %s, %s)",
                     row
                 )
 
@@ -68,7 +68,7 @@ def seed_data():
                 cur.execute(
                     """INSERT INTO products 
                     (id, brand, product_title, product_name, price, description, img1, img2, img3)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
                     row
                 )
 
@@ -134,7 +134,7 @@ def products():
     name = request.args.get('name')
 
     if name:
-        cur.execute("SELECT COUNT(*) FROM products WHERE brand = %s;", (request.args.get('name')))
+        cur.execute("SELECT COUNT(*) FROM products WHERE brand = %s;", (request.args.get('name'),))
         total = cur.fetchone()[0]
         no_of_page = math.ceil(total/ per_page)
 
@@ -157,7 +157,7 @@ def products():
 
 @app.route("/detail", methods=["GET", "POST"])
 def detail():
-    cur.execute("SELECT * FROM products WHERE id = %s;", (request.args.get('name')))
+    cur.execute("SELECT * FROM products WHERE id = %s;", (request.args.get('name'),))
     detail = cur.fetchall()
     return render_template("detail.html", detail=detail)
 
@@ -204,7 +204,7 @@ def account():
                 elif not password:
                     return apology("must provide password", 400)
 
-                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['username']))
+                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['username'],))
                 con.commit()
                 row = cur.fetchone()
 
@@ -225,7 +225,7 @@ def account():
 
                 # Forget any user_id
                 session.clear()
-                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['registerUsername']))
+                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['registerUsername'],))
                 row = cur.fetchone()
 
                 if not request.form['registerName']:
