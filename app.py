@@ -88,8 +88,9 @@ Session(app)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "shopping.db")
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
-con = sqlite3.connect(DB_PATH, check_same_thread=False)
+con = psycopg2.connect(DATABASE_URL)
 cur = con.cursor()
 
 # Calling the database
@@ -133,12 +134,12 @@ def products():
     name = request.args.get('name')
 
     if name:
-        cur.execute("SELECT COUNT(*) FROM products WHERE brand = ?;", [request.args.get('name')])
+        cur.execute("SELECT COUNT(*) FROM products WHERE brand = %s;", (request.args.get('name')))
         total = cur.fetchone()[0]
         no_of_page = math.ceil(total/ per_page)
 
         offset = (current_page - 1) * per_page
-        cur.execute("SELECT * FROM products WHERE brand = ? LIMIT ? OFFSET ?;", [request.args.get('name'), per_page, offset])
+        cur.execute("SELECT * FROM products WHERE brand = %s LIMIT %s OFFSET %s;", (request.args.get('name'), per_page, offset))
         products = cur.fetchall()
 
         return render_template("products.html", current_page=current_page, no_of_page=no_of_page, products=products, name=name)
@@ -149,14 +150,14 @@ def products():
         no_of_page = math.ceil(total/ per_page)
 
         offset = (current_page - 1) * per_page
-        cur.execute("SELECT * FROM products ORDER BY RANDOM() LIMIT ? OFFSET ?", [per_page, offset])
+        cur.execute("SELECT * FROM products ORDER BY RANDOM() LIMIT %s OFFSET %s", (per_page, offset))
         products = cur.fetchall()
 
         return render_template("products.html", current_page=current_page, no_of_page=no_of_page, products=products)
 
 @app.route("/detail", methods=["GET", "POST"])
 def detail():
-    cur.execute("SELECT * FROM products WHERE id = ?;", [request.args.get('name')])
+    cur.execute("SELECT * FROM products WHERE id = %s;", (request.args.get('name')))
     detail = cur.fetchall()
     return render_template("detail.html", detail=detail)
 
@@ -203,7 +204,7 @@ def account():
                 elif not password:
                     return apology("must provide password", 400)
 
-                cur.execute("SELECT * FROM users WHERE username = ?;", [request.form['username']])
+                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['username']))
                 con.commit()
                 row = cur.fetchone()
 
@@ -224,7 +225,7 @@ def account():
 
                 # Forget any user_id
                 session.clear()
-                cur.execute("SELECT * FROM users WHERE username = ?;", [request.form['registerUsername']])
+                cur.execute("SELECT * FROM users WHERE username = %s;", (request.form['registerUsername']))
                 row = cur.fetchone()
 
                 if not request.form['registerName']:
@@ -249,7 +250,7 @@ def account():
                     return apology("Username Exists! Please try a entering a different one", 400)
 
                 else:
-                    cur.execute("INSERT INTO users (username, hash, name) VALUES (?, ?, ?)",
+                    cur.execute("INSERT INTO users (username, hash, name) VALUES (%s, %s, %s)",
                                     (request.form['registerUsername'], generate_password_hash(request.form['registerPassword']), request.form['registerName']))
                     con.commit()
 
@@ -313,7 +314,7 @@ def cart():
     # Get product details from the database for each product ID in the cart
     items = []
     for product_id, quantity in cart.items():
-        cur.execute("SELECT * FROM products WHERE id = ?", (product_id,))
+        cur.execute("SELECT * FROM products WHERE id = %s", (product_id,))
         product = cur.fetchone()
         items.append({
             'product': product,
