@@ -38,7 +38,7 @@ def init_db():
     # USERS table
     cur.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            id SERIAL PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY,
             username TEXT UNIQUE,
             hash TEXT,
             name TEXT
@@ -55,7 +55,7 @@ def seed_data():
             next(reader)
             for row in reader:
                 cur.execute(
-                    "INSERT INTO brand (id, brand_name, brand_logo) VALUES (%s, %s, %s)",
+                    "INSERT INTO brand (brand_name, brand_logo) VALUES (%s, %s)",
                     row
                 )
 
@@ -67,8 +67,8 @@ def seed_data():
             for row in reader:
                 cur.execute(
                     """INSERT INTO products 
-                    (id, brand, product_title, product_name, price, description, img1, img2, img3)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                    (brand, product_title, product_name, price, description, img1, img2, img3)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
                     row
                 )
 
@@ -77,6 +77,7 @@ def seed_data():
 
 # Configure application
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # Custom filter
 app.jinja_env.filters["usd"] = usd
