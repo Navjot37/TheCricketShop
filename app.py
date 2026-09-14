@@ -92,6 +92,7 @@ DB_PATH = os.path.join(BASE_DIR, "shopping.db")
 DATABASE_URL = os.environ.get("DATABASE_URL")
 
 con = psycopg2.connect(DATABASE_URL)
+cur = con.cursor()
 
 # Calling the database
 init_db()
@@ -115,12 +116,8 @@ def login_required(f):
 
 @app.route("/")
 def default():
-    cur = con.cursor()
-
     cur.execute("SELECT * FROM brand")
     Logos = cur.fetchall()
-
-    cur.close()
 
     return render_template("index.html", Logos=Logos)
 
